@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:sty="using:FluentAvalonia.Styling"
+             xmlns:local="using:assets_manager"
+             x:Class="assets_manager.App">
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+      <FluentTheme Mode="Dark"/>
+      <StyleInclude Source="avares://AsyncImageLoader.Avalonia/AdvancedImage.axaml" />
+      <StyleInclude Source="avares://assets_manager/Icons.axaml" />
+      <sty:FluentAvaloniaTheme RequestedTheme="Dark"
+                         PreferUserAccentColor="False"
+                         UseSystemFontOnWindows="False"
+                         PreferSystemTheme="False"/>
+    </Application.Styles>
+</Application>

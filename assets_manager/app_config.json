@@ -1,0 +1,4 @@
+﻿{
+  "login_module": "Ftrack",
+  "supported_modules": [ "Ftrack", "shotgun" ]
+}

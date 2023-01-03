@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:assets_manager.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:LocalUserView="using:assets_manager.Views"
+        mc:Ignorable="d" d:DesignWidth="1200" Width="1200" d:DesignHeight="450"
+        WindowStartupLocation="CenterScreen"
+        x:Class="assets_manager.Views.MainWindow"
+        Icon="/Assets/assets_logo.png"
+        Title="assets_manager">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+  
+  <Grid RowDefinitions="*, Auto">
+    <LocalUserView:UserLoginControl Grid.Row="0" Width="400" Height="400" HorizontalAlignment="Center"/>
+  </Grid>
+</Window>
