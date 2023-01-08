@@ -1,8 +1,10 @@
+using assets_manager.Config;
 using assets_manager.ViewModels;
 using assets_manager.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Platform;
 using NLog;
 
 namespace assets_manager
@@ -31,5 +33,6 @@ namespace assets_manager
 
             base.OnFrameworkInitializationCompleted();
         }
+
     }
 }

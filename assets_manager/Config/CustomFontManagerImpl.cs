@@ -1,12 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
-namespace assets_manager.Config
+namespace assets_manager.Config;
+
+public class CustomFontManagerImpl
 {
-    internal class CustomFontManagerImpl
+
+    public static string GetPlatformFontFamily()
     {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            return "Microsoft YaHei";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            return "Menlo"; //换成OSX下的中文字体
+        }
+        else
+        {
+            return "Noto Sans CJK SC";
+        }
     }
+
 }

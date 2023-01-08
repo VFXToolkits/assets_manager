@@ -1,9 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using NLog;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
 using System.IO;
 
 namespace assets_manager.Helpers;
@@ -35,7 +32,6 @@ public class SqLiteHelper
 
             dbConnectionstr = new SqliteConnectionStringBuilder();
             dbConnectionstr.DataSource = $"{app_data_path}/assets_config.db";
-            dbConnectionstr.Password = "assets_manager_admin";      //设置密码，SQLite ADO.NET实现了数据库密码保护
             dbConnection.ConnectionString = dbConnectionstr.ToString();
             dbConnection.Open();
         }
@@ -111,17 +107,17 @@ public class SqLiteHelper
     /// <returns>The values.</returns>
     /// <param name="tableName">数据表名称</param>
     /// <param name="values">插入的数值</param>
-    public SqliteDataReader InsertValues(string tableName, string[] values)
+    public SqliteDataReader InsertValues(string tableName, string[] values, string col_list = "(key, value)")
     {
         //获取数据表中字段数目
         int fieldCount = ReadFullTable(tableName).FieldCount;
         //当插入的数据长度不等于字段数目时引发异常
-        if (values.Length != fieldCount)
+        if (values.Length + 1 != fieldCount)
         {
             logger.Error("values.Length!=fieldCount");
             throw new SqliteException("values.Length!=fieldCount", 0);
         }
-        string queryString = "INSERT INTO " + tableName + " VALUES (" + "'" + values[0] + "'";
+        string queryString = "INSERT INTO " + tableName + $"{col_list}" + " VALUES (" + "'" + values[0] + "'";
         for (int i = 1; i < values.Length; i++)
         {
             queryString += ", " + "'" + values[i] + "'";

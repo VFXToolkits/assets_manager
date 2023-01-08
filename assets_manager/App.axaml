@@ -1,5 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:np="https://np.com/visuals"
              xmlns:sty="using:FluentAvalonia.Styling"
              xmlns:local="using:assets_manager"
              x:Class="assets_manager.App">

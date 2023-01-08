@@ -11,10 +11,10 @@
         <StackPanel Spacing="12">
           <TextBlock TextAlignment="Center" FontSize="35" Margin="10">APM</TextBlock>
           <TextBlock TextAlignment="Center" FontSize="30">User login</TextBlock>
-        <TextBox Name="LoginUserName" Watermark="User name" Width="360" Height="40" VerticalContentAlignment="Center"></TextBox>
-        <TextBox Name="UserPassword" PasswordChar="•" Watermark="password" Width="360" Height="40" VerticalContentAlignment="Center"></TextBox>
-        <CheckBox Margin="22,0,0,0">Is remember</CheckBox>
-        <Button HorizontalAlignment="Center" Width="180" Height="40" FontSize="25">Login</Button>
+        <TextBox Name="LoginUserName" Text="{Binding UserName, Mode=TwoWay}" Watermark="User name" Width="360" Height="40" VerticalContentAlignment="Center"></TextBox>
+        <TextBox Name="UserPassword" Text="{Binding Password, Mode=TwoWay}" PasswordChar="•" Watermark="password" Width="360" Height="40" VerticalContentAlignment="Center"></TextBox>
+        <CheckBox Margin="22,0,0,0" IsChecked="{Binding IsRemember}">Is remember</CheckBox>
+        <Button HorizontalAlignment="Center" Command="{Binding LoginCommand}" Width="180" Height="40" FontSize="25">Login</Button>
         <TextBlock HorizontalAlignment="Right" Margin="0,40,20,0">version 0.0.1</TextBlock>
       </StackPanel>
       </Border>

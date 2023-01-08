@@ -1,4 +1,9 @@
 ﻿{
+  "app_name": "Assets Manager",
+  "python_path": "",
+  "python_script_lib": "",
   "login_module": "Ftrack",
-  "supported_modules": [ "Ftrack", "shotgun" ]
+  "supported_modules": [ "Ftrack", "shotgun" ],
+  "base_usr": "https://www.ftrack.com/api/",
+  "login_url_name": "user_login"
 }

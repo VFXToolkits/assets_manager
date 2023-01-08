@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace assets_manager.Config
 {
-    public static class AppConfig
+    public static class RunFieldConfig
     {
+        public static string UserName;
+        public static string Password;
 
     }
 }
