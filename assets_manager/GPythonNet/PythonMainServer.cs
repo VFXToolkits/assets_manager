@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using DynamicData;
+using NLog;
 using Python.Runtime;
 using System;
 using System.IO;
@@ -33,8 +34,6 @@ public class PythonMainServer
             GetAllPythonPath(PYTHON_HOME)
             ) ;
 
-        PythonEngine.Initialize();
-
         logger.Info("python init done");
         IsInitialize = true;
     }
@@ -44,12 +43,24 @@ public class PythonMainServer
         string[] python_paths = new string[]
             {
                 PythonEngine.PythonPath,
-                Path.Combine(python_home, @"Lib/site-packages"),
                 PythonScriptPath
             };
-        if (Config.AppPathConst.AppSetConfigField.PythonScriptLib != "") {
-            python_paths.Append(Config.AppPathConst.AppSetConfigField.PythonScriptLib);
+        string python_sc_lib = Config.AppPathConst.AppSetConfigField.PythonScriptLib;
+        if (python_sc_lib != "") {
+            string[] lib_python_paths = new string[]
+                {
+                PythonEngine.PythonPath,
+                PythonScriptPath,
+                python_sc_lib
+                };
+            return lib_python_paths;
         }
         return python_paths;
+    }
+
+    public void InitPythonServer() {
+        if (!IsInitialize) {
+            PythonInitMainDLL();
+        }
     }
 }

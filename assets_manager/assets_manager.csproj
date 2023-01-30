@@ -6,10 +6,10 @@
     <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
     <TrimMode>copyused</TrimMode>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationIcon>Assets\avalonia-logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Assets\fonts\" />
-    <Folder Include="Models\" />
     <AvaloniaResource Include="Assets\**" />
     <None Remove=".gitignore" />
     <None Remove="NLog.config" />
@@ -45,4 +45,8 @@
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\UserLoginControl.axaml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\avalonia-logo.ico" />
+  </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties app_3config_1json__JsonSchema="https://docs.gradle.com/build-cache-node/schema/build-cache-node-config-schema-5.json" /></VisualStudio></ProjectExtensions>
 </Project>

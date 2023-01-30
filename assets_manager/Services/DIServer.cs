@@ -1,7 +1,9 @@
 ﻿using assets_manager.Services.Storage;
+using assets_manager.ViewModels;
+using assets_manager.ViewModels.Base;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Diagnostics;
+
 
 namespace assets_manager.Services;
 
@@ -15,6 +17,9 @@ public static class DIServer
     public static void AddBaseServer(ServiceCollection sc)
     {
         sc.AddSingleton<KeyValueStorage>();
+        sc.AddSingleton<UserViewModelBase>();
+
+        sc.AddSingleton<ProjectAllControlViewModel>();
     }
 
     private static void Initialize()

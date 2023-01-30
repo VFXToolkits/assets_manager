@@ -159,6 +159,7 @@ nCrunchTemp_*
 # MightyMoose
 *.mm.*
 AutoTest.Net/
+test_python_lib/
 
 # Web workbench (sass)
 .sass-cache/

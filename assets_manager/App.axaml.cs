@@ -1,17 +1,17 @@
-using assets_manager.Config;
 using assets_manager.ViewModels;
 using assets_manager.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Avalonia.Platform;
 using NLog;
+
 
 namespace assets_manager
 {
     public partial class App : Application
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         public override void Initialize()
         {
             Config.AppPathConst.AppInitValue();
@@ -19,6 +19,7 @@ namespace assets_manager
 
             AvaloniaXamlLoader.Load(this);
             logger.Info("assets manager start app");
+            logger.Info($"PythonPath {Config.AppPathConst.AppSetConfigField.PythonPath}");
         }
 
         public override void OnFrameworkInitializationCompleted()

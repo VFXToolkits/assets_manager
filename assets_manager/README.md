@@ -17,3 +17,8 @@
     - macOS ```~/Library/Caches/assets_manager_logs```
     - Linux ```$HOME/.cache/assets_manager_logs```
 
+
+## test key
+
+YjE5NjNlNjktZDQzOC00MmM1LTk2NzctOWMyNGE3ZmY3ZWY2OjpjOTk5Y2VjZC0wZmMzLTQxZWEtOGRiYi1kOGVlYWJlNjk5YWE
+

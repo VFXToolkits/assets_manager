@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ui="using:FluentAvalonia.UI.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="assets_manager.Views.MainView">
+  <DockPanel>
+    <ui:NavigationView x:Name="nvSample1" PaneDisplayMode="Left" IsPaneOpen="True" DockPanel.Dock="Top" OpenPaneLength="200">
+      <ui:NavigationView.MenuItems>
+        <ui:NavigationViewItem Content="个人信息" Tag="UserInfomationView" Icon="People" />
+        <ui:NavigationViewItem Content="全部项目" Tag="ProjectAllControl" Icon="Globe" />
+        <ui:NavigationViewItem Content="正在传输" Tag="transmission" Icon="NewWindow" />
+        <ui:NavigationViewItem Content="正在运行程序" Tag="run_program" Icon="Highlight" />
+        <ui:NavigationViewItem Content="应用程序" Tag="application" Icon="Folder" />
+        <ui:NavigationViewItem Content="REZ包管理" Tag="rez_pkg" Icon="OpenFile" />
+      </ui:NavigationView.MenuItems>
+      
+      <ui:Frame x:Name="MainFrame" IsNavigationStackEnabled="False" ClipToBounds="True">
+      </ui:Frame>
+    </ui:NavigationView>
+  </DockPanel>
+  
+</UserControl>

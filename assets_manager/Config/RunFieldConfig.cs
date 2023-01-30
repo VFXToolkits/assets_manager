@@ -10,6 +10,6 @@ namespace assets_manager.Config
     {
         public static string UserName;
         public static string Password;
-
+        public static string Name;
     }
 }

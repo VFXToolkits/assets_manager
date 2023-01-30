@@ -1,9 +1,8 @@
+using assets_manager.GPythonNet;
 using assets_manager.Services;
 using assets_manager.Services.Storage;
+using assets_manager.ViewModels.Base;
 using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Reactive;
 using System.Threading.Tasks;
 
@@ -16,7 +15,7 @@ public class MainWindowViewModel : ViewModelBase
     private string _user_name;
     private string _password;
     private bool _is_remember;
-    private bool _is_loading = false;
+    private bool _is_loading = true;
     public string UserName
     {
         get => _user_name;
@@ -91,11 +90,21 @@ public class MainWindowViewModel : ViewModelBase
     private async Task LoginServer()
     {
         IsLoading = true;
-        await Task.Delay(1000);
+        UserViewModelBase? user_view_model = DIServer.GetService<UserViewModelBase>();
+        user_view_model.UserLoadingShow = true;
+
+        var python_server = new PythonMainServer();
+        python_server.InitPythonServer();
+
+        await Task.Run(() => {
+            var currentuser = new GPythonNet.MainSiteLib.UserLogin(UserName, Password);
+        });
+
         if (_is_remember) {
             SetSavePreferences();
         }
         IsLoading = false;
+        user_view_model.UserLoadingShow = false;
     }
 
     private void SetSavePreferences()
@@ -107,5 +116,6 @@ public class MainWindowViewModel : ViewModelBase
     {
 
     }
+
 
 }

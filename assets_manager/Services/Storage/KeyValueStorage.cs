@@ -20,9 +20,7 @@ public class KeyValueStorage : IKeyValueStorage
     {
         SqliteDataReader result = sqlite_helper.ExecuteQuery($"SELECT value from preferences where key = \"{key}\"");
         while (result.Read()) {
-            if (result.GetString(result.GetOrdinal("key")) == key) { 
                 return result.GetString(result.GetOrdinal("value"));
-            }
         }
             return defaultValue;
     }

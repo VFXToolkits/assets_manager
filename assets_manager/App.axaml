@@ -16,5 +16,6 @@
                          PreferUserAccentColor="False"
                          UseSystemFontOnWindows="False"
                          PreferSystemTheme="False"/>
+      <StyleInclude Source="/Views/template/ProjectItem.axaml"></StyleInclude>
     </Application.Styles>
 </Application>

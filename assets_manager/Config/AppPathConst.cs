@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace assets_manager.Config
@@ -12,7 +13,7 @@ namespace assets_manager.Config
         public static string? AppDataDirectory { get; set; }
         
         // app config
-        public static AppConfigField AppSetConfigField { get; set; }
+        public static AppConfigField? AppSetConfigField { get; set; }
 
         public static void AppInitValue() {
 
@@ -38,22 +39,18 @@ namespace assets_manager.Config
 
             // app directory
             BaseDirectory = AppDomain.CurrentDomain.BaseDirectory.Replace("\\", "/");
-            read_app_config();
+
+            AppSetConfigField = new AppConfigField();
+            AppSetConfigField = JsonConvert.DeserializeObject<AppConfigField>(File.ReadAllText($"{BaseDirectory}app_config.json"));
         }
     
-        private static void read_app_config()
-        {
-            AppConfigField AppSetConfigField = new AppConfigField();
-            AppSetConfigField = JsonConvert.DeserializeObject<AppConfigField>($"{BaseDirectory}app_config.json");
-
-        }
     }
 
 
    public class AppConfigField
     {
-        public string AppName { get; set; }
-        public string PythonPath { get; set; }
+        public string? AppName { get; set; }
+        public string? PythonPath { get; set; }
         public string LoginModule { get; set; }
         public List<string> SupportedModules { get; set; }
 

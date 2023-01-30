@@ -1,0 +1,51 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:controls="using:assets_manager.Views.template"
+             x:Class="assets_manager.Views.loadPages.ProjectAllControl">
+  <Grid RowDefinitions="Auto, *">
+    <TextBox Name="SearchTextBox" MaxWidth="400" Watermark="项目名称"
+                       Margin="5">
+      <TextBox.InnerRightContent>
+        <StackPanel Orientation="Horizontal">
+          <Button Content="&#xE8BB;"
+                     FontFamily="{StaticResource SymbolThemeFontFamily}"
+                     Classes="AppBarButton"
+                     Command="{Binding $parent[TextBox].Clear}"
+                     IsVisible="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type TextBox}}, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"/>
+          <Button Content="&#xE721;"
+                     FontFamily="{StaticResource SymbolThemeFontFamily}"
+                     Classes="AppBarButton"
+                     Command="{Binding $parent[TextBox].Clear}"
+                     IsHitTestVisible="False"/>
+        </StackPanel>
+      </TextBox.InnerRightContent>
+    </TextBox>
+    <ListBox Grid.Row="1" Items="{Binding ProjectModelItemList}" Margin="5" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+      <ListBox.ItemsPanel>
+        <ItemsPanelTemplate>
+          <WrapPanel />
+        </ItemsPanelTemplate>
+      </ListBox.ItemsPanel>
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <controls:ProjectItem ProjectName="{Binding ProjectName}"/>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+
+      <ListBox.Styles>
+        <!-- Give the ListBoxItems a fixed with of 100 and right-align them -->
+        <Style Selector="ListBoxItem">
+          <Setter Property="Width" Value="190"/>
+          <Setter Property="Height" Value="240"/>
+          <Setter Property="HorizontalAlignment" Value="Center"/>
+          <Setter Property="Margin" Value="1"/>
+        </Style>
+      </ListBox.Styles>
+
+    </ListBox>
+
+  </Grid>
+</UserControl>
